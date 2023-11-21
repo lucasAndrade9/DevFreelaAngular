@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
 import { RegisterRoutingModule } from './register-routing.module';
-import { LdHeaderModule } from '../../features/ld-header/ld-header.module';
+import { LdButtonModule } from '../../shared/components/ld-button/ld-button.module';
+import { LdWrapperModule } from '../../features/ld-wrapper/ld-wrapper.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { LdHeaderModule } from '../../features/ld-header/ld-header.module';
   imports: [
     CommonModule,
     RegisterRoutingModule,
-    LdHeaderModule
+    LdButtonModule,
+    LdWrapperModule
   ]
 })
 
