@@ -17,6 +17,14 @@
           margin-right: 70px;
         }
       }
+
+      >.role-invalid {
+        color: red;
+        display: inline-block;
+        margin-top: 15px;
+        font-weight: 300;
+        font-size: 12px;
+      }
     }
 
     >.main-title {
@@ -41,5 +49,6 @@
       color: var(--ld-color-gray);
       margin-bottom: 13px;
     }
+
   }
 }
