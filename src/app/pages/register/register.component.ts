@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { msg } from '../../shared/utils/msg';
 import { RegisterService } from './services/register.service';
-import { IUser } from './interfaces/iuser';
+import { IUser } from './interfaces/IUser';
 
 @Component({
   selector: 'app-register',
@@ -63,9 +63,9 @@ export class RegisterComponent implements OnInit {
             confirmButtonText: 'Ok!'
           }).then((result) => {
             if (result.isConfirmed) {
-              localStorage.setItem("userName", response.fullName);
-              localStorage.setItem("role", response.role === "dev" ? "Desenvolvedor" : "Cliente");
-              localStorage.setItem("idClient", response.id);
+              // localStorage.setItem("userName", response.fullName);
+              // localStorage.setItem("role", response.role === "dev" ? "Desenvolvedor" : "Cliente");
+              // localStorage.setItem("idClient", response.id);
             }
           });
         },

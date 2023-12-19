@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUser } from '../interfaces/iuser';
+import { IUser } from '../interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 
@@ -11,6 +11,6 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   postUser(payload: IUser) {
-    return this.http.post(environment.apiUrl + 'users', payload);
+    return this.http.post(environment.apiUrl + '/users', payload);
   }
 }

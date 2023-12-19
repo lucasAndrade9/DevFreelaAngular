@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+export type TLdWrapperCol = 'one-col' | 'two-col';
 
 @Component({
   selector: 'ld-wrapper',
@@ -7,5 +9,5 @@ import { Component } from '@angular/core';
 })
 
 export class LdWrapperComponent {
-
+  @Input() type: TLdWrapperCol = 'two-col';
 }

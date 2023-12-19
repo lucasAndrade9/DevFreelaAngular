@@ -19,12 +19,13 @@ export class LdHeaderComponent implements OnInit {
 
   buildHeader() {
     if (this.checkIfUserIsLogged()) {
-      this.user.name = localStorage.getItem("userName") || '';
-      this.user.role = localStorage.getItem("role") || '';
+      //this.user.name = localStorage.getItem("userName") || '';
+      //this.user.role = localStorage.getItem("role") || '';
     }
   }
 
   checkIfUserIsLogged(): boolean {
-    return localStorage.getItem("userName") !== null && localStorage.getItem("role") !== null;
+    return true;
+    //return localStorage.getItem("userName") !== null && localStorage.getItem("role") !== null;
   }
 }
