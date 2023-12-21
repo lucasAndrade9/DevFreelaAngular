@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IListItem } from './interfaces/IListItem';
+import { IProject } from '../../shared/interfaces/IProject';
 import { ListService } from './services/list.service';
+import { NavigationBehaviorOptions, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -10,9 +11,9 @@ import { ListService } from './services/list.service';
 
 export class ListComponent implements OnInit {
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService, private router: Router) { }
 
-  list: IListItem[] = [];
+  list: IProject[] = [];
   tableIsLoaded: boolean = false;
 
   ngOnInit(): void {
@@ -21,7 +22,7 @@ export class ListComponent implements OnInit {
 
   getProjects() {
     this.listService.getProjects().subscribe(
-      (response: IListItem[]) => {
+      (response: IProject[]) => {
         this.list = response;
         this.tableIsLoaded = true;
       }
@@ -32,12 +33,26 @@ export class ListComponent implements OnInit {
     window.location.href = `project-create-edit.html?id=${id}`;
   }
 
-  deleteProject(id: string) {
+  deleteProject(id: string = '') {
     this.listService.deleteProject(id).subscribe(
       (response) => {
         this.list = this.list.filter(project => project.id != id);
       }
     );
+  }
+
+  redirectTo(url: string) {
+    this.router.navigateByUrl(url);
+  }
+
+  redirectToWithParams(url: string, id: string = '') {
+    const dataParams: NavigationBehaviorOptions = {
+      state: {
+        id: id
+      }
+    };
+
+    this.router.navigate([`/${url}`], dataParams);
   }
 
 }
